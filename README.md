@@ -159,15 +159,16 @@ ORDER BY c.category_name;
 
 ## Skills Demonstrated
 - SQL
-•	JOINs
-•	Common Table Expressions (CTEs)
-•	Aggregate functions
-•	GROUP BY
-•	ORDER BY
+1.	JOINs
+2.	Common Table Expressions (CTEs)
+3.	Aggregate functions
+4.	GROUP BY
+5.	ORDER BY
 
 - Excel
-•	PivotTables
-•	PivotCharts
-•	Interactive slicers
-•	KPI cards
-•	Dashboard design
+1.	PivotTables
+2.	PivotCharts
+3.	Interactive slicers
+4.	KPI cards
+5.	Dashboard design
+
