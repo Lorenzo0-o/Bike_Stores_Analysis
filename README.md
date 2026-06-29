@@ -3,7 +3,7 @@
 ## Project Overview
 This project analyses sales performances across three bike stores between 2016 and 2018 using MySQL for data extraction and analysis and Excel for ulterior data analysis and data visualization. The analysis focuses on revenue trends, customer behaviour, product performance and store comparisons.
 
-.## Objectives
+## Objectives
 - Analyze stores performance over the years 2016 - 2018
 - Identify top customers per store
 - Analyze category revenue
