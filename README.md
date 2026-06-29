@@ -25,12 +25,14 @@ Project followed the following workflow:
 
 ## SQL Analysis
 -- PERIOD ANALYZED
+
 SELECT MIN(order_date) AS start_date,
 	MAX(order_date) AS end_date
 FROM orders;
 -- analysis starts on 1 january 2016 and finishes on 28 december 2018
 
 -- COUNT OF PRODUCTS FOR EACH CATEGORY
+
 SELECT category_name AS categories,
 	COUNT(product_name) AS num_of_products
 FROM categories c
@@ -40,6 +42,7 @@ GROUP BY categories
 ORDER BY num_of_products DESC;
 
 -- REVENUE AND ORDERS DURING YEARS PER STORE
+
 SELECT YEAR(o.order_date) AS year,
 	s.store_name,
 	s.state,
@@ -56,6 +59,7 @@ state
 ORDER BY year;
     
 -- AVERAGE ORDER PRICE PER SHOP PER YEAR
+
 WITH CTE_price AS(
 SELECT store_name,
 	YEAR (order_date) AS year,
@@ -76,6 +80,7 @@ ORDER BY year,
 store_name;
 
 -- CUSTOMERS SALES AND ORDERS NUMBER
+
 SELECT s.store_name,
 	CONCAT(c.first_name, " ", c.last_name) AS customer_name,
     ROUND(SUM((o.list_price * o.quantity) * (1 - o.discount)),2) AS sales_per_cust,
@@ -92,6 +97,7 @@ customer_name
 ORDER BY sales_per_cust DESC;
 
 -- MOST SOLD CATEGORIES PER STORES AND REVENUE 
+
 SELECT s.store_name,
 	c.category_name,
     SUM(o2.quantity) AS products_sold,
@@ -111,6 +117,7 @@ ORDER BY s.store_name,
 total_revenue DESC;
 
 -- ORDERS NUMBER OF ITEMS FOR EACH CATEGORY
+
 SELECT c.category_name,
 	p.product_name,
     COUNT(o.order_id) AS orders_num
@@ -124,6 +131,7 @@ p.product_name
 ORDER BY orders_num DESC;
 
 -- BEST BRANDS ON ORDERS NUMBER
+
 SELECT c.category_name,
 	b.brand_name,
 	COUNT(o.order_id) AS orders_num
