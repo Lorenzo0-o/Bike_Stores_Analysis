@@ -26,10 +26,12 @@ Project followed the following workflow:
 ## SQL Analysis
 -- PERIOD ANALYZED
 
-'SELECT MIN(order_date) AS start_date,
+'''sql
+SELECT MIN(order_date) AS start_date,
 	MAX(order_date) AS end_date
 FROM orders;
 -- analysis starts on 1 january 2016 and finishes on 28 december 2018'
+'''
 
 -- COUNT OF PRODUCTS FOR EACH CATEGORY
 
