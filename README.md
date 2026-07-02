@@ -36,6 +36,7 @@ FROM orders;
 
 -- COUNT OF PRODUCTS FOR EACH CATEGORY
 
+```sql
 SELECT category_name AS categories,
 	COUNT(product_name) AS num_of_products
 FROM categories c
@@ -43,9 +44,10 @@ JOIN products p
 USING(category_id)
 GROUP BY categories
 ORDER BY num_of_products DESC;
-
+```
 -- REVENUE AND ORDERS DURING YEARS PER STORE
 
+```sql
 SELECT YEAR(o.order_date) AS year,
 	s.store_name,
 	s.state,
@@ -60,9 +62,9 @@ GROUP BY year,
 store_name, 
 state
 ORDER BY year;
-    
+``` 
 -- AVERAGE ORDER PRICE PER SHOP PER YEAR
-
+```sql
 WITH CTE_price AS(
 SELECT store_name,
 	YEAR (order_date) AS year,
@@ -81,9 +83,9 @@ GROUP BY store_name,
 year
 ORDER BY year,
 store_name;
-
+```
 -- CUSTOMERS SALES AND ORDERS NUMBER
-
+```sql
 SELECT s.store_name,
 	CONCAT(c.first_name, " ", c.last_name) AS customer_name,
     ROUND(SUM((o.list_price * o.quantity) * (1 - o.discount)),2) AS sales_per_cust,
@@ -98,9 +100,9 @@ ON o2.store_id = s.store_id
 GROUP BY s.store_name,
 customer_name
 ORDER BY sales_per_cust DESC;
-
+```
 -- MOST SOLD CATEGORIES PER STORES AND REVENUE 
-
+```sql
 SELECT s.store_name,
 	c.category_name,
     SUM(o2.quantity) AS products_sold,
@@ -118,9 +120,9 @@ GROUP BY s.store_name,
 c.category_name
 ORDER BY s.store_name,
 total_revenue DESC;
-
+```
 -- ORDERS NUMBER OF ITEMS FOR EACH CATEGORY
-
+```sql
 SELECT c.category_name,
 	p.product_name,
     COUNT(o.order_id) AS orders_num
@@ -132,9 +134,9 @@ ON p.category_id = c.category_id
 GROUP BY c.category_name,
 p.product_name
 ORDER BY orders_num DESC;
-
+```
 -- BEST BRANDS ON ORDERS NUMBER
-
+```sql
 SELECT c.category_name,
 	b.brand_name,
 	COUNT(o.order_id) AS orders_num
@@ -148,7 +150,7 @@ ON p.category_id = c.category_id
 GROUP BY b.brand_name,
 c.category_name
 ORDER BY c.category_name;
-
+```
 ## Dashboard
  <img width="452" height="230" alt="image" src="https://github.com/user-attachments/assets/8cf2d6f0-9341-4ff6-a687-e51a4bf11b1a" />
 
