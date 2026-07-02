@@ -26,7 +26,7 @@ Project followed the following workflow:
 ## SQL Analysis
 -- PERIOD ANALYZED
 
-SELECT MIN(order_date) AS start_date,
+'SELECT MIN(order_date) AS start_date,
 	MAX(order_date) AS end_date
 FROM orders;
 -- analysis starts on 1 january 2016 and finishes on 28 december 2018
@@ -39,7 +39,7 @@ FROM categories c
 JOIN products p
 USING(category_id)
 GROUP BY categories
-ORDER BY num_of_products DESC;
+ORDER BY num_of_products DESC;'
 
 -- REVENUE AND ORDERS DURING YEARS PER STORE
 
